@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button c2, d2, e2, f2, g2;
+    Button c2, d2, e2, f2, g2, bb;
     private SoundPool soundPool;
 
-    private int sound_c2, sound_d2, sound_e2, sound_f2, sound_g2;
+    private int sound_c2, sound_d2, sound_e2, sound_f2, sound_g2, sound_black1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         e2 = (Button)findViewById(R.id.e2);
         f2 = (Button)findViewById(R.id.f2);
         g2 = (Button)findViewById(R.id.g2);
+
+        bb = (Button)findViewById(R.id.black);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -46,12 +48,23 @@ public class MainActivity extends AppCompatActivity {
         sound_f2  = soundPool.load(this, R.raw.f2, 1);
         sound_g2  = soundPool.load(this, R.raw.g2, 1);
 
+        sound_black1 = soundPool.load(this, R.raw.e2, 1);//for testin
+
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c2,1,1,0,0,1);
                 Toast.makeText(MainActivity.this,"This isssss c2", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        bb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_black1,1,1,0,0,1);
+                Toast.makeText(MainActivity.this,"This isssss black", Toast.LENGTH_SHORT).show();
 
             }
         });
