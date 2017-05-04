@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This isssssssss the c2", Toast.LENGTH_SHORT).show();//remove these eventually
+                Toast.makeText(MainActivity.this,"This iss the c2", Toast.LENGTH_SHORT).show();//remove these eventually
 
             }
         });
