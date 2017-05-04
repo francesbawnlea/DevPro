@@ -42,20 +42,20 @@ public class MainActivity extends AppCompatActivity {
             soundPool=new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         }
 
-        sound_c2  = soundPool.load(this, R.raw.longdryc1, 1);
+        sound_c2  = soundPool.load(this, R.raw.shortdryc1, 1);
         sound_d2  = soundPool.load(this, R.raw.d2, 1);
         sound_e2  = soundPool.load(this, R.raw.e2, 1);
         sound_f2  = soundPool.load(this, R.raw.f2, 1);
         sound_g2  = soundPool.load(this, R.raw.g2, 1);
 
-        sound_black1 = soundPool.load(this, R.raw.longdryc1, 1);//for testin
+        sound_black1 = soundPool.load(this, R.raw.shortdryc1, 1);//for testin
 
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This isssssssss the c2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"This isssssssss the c2", Toast.LENGTH_SHORT).show();//remove these eventually
 
             }
         });
