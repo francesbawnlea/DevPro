@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         sound_c2  = soundPool.load(this, R.raw.shortdryhighnote, 1);
-        sound_d2  = soundPool.load(this, R.raw.d2, 1);
+        sound_d2  = soundPool.load(this, R.raw.shortdry, 1);
         sound_e2  = soundPool.load(this, R.raw.e2, 1);
         sound_f2  = soundPool.load(this, R.raw.f2, 1);
         sound_g2  = soundPool.load(this, R.raw.g2, 1);
