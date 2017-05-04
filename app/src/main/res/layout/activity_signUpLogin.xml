@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sineadmartin.sineadpiano01.RegisterActivity">
+    tools:context="com.sineadmartin.sineadpiano01.SignUpLoginActivity">
 
 </android.support.constraint.ConstraintLayout>
