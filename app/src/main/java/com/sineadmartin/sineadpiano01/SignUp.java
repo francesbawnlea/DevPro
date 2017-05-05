@@ -22,7 +22,8 @@ public class SignUp extends AppCompatActivity {
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference dbRef = db.getReference("STH");// what goes in here as reference???
-    Firebase firebase;
+
+    ////////Firebase firebase; not working, do i need to create a class called Firebase?????
 
     private volatile boolean gotKey = false;
 
@@ -30,5 +31,14 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        //Get the views
+
+        editFirstName = (EditText) findViewById(R.id.editfirstName);
+        editLastName = (EditText) findViewById(R.id.editLastName);
+        editEmail = (EditText) findViewById(R.id.editEmail);
+        editPassword = (EditText) findViewById(R.id.editPassword);
+        editConformPassword = (EditText) findViewById(R.id.editConfirmPassword);
+
+
     }
 }
