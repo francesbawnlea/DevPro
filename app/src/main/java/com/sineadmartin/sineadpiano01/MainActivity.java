@@ -49,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
         sound_g2  = soundPool.load(this, R.raw.g2, 1);
 
 
-        sound_black1 = soundPool.load(this, R.raw.longdryc1, 1);//for testin
+        sound_black1 = soundPool.load(this, R.raw.longdryc1, 1);//for testing
 
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is the c2", Toast.LENGTH_SHORT).show();//remove these eventually
+                Toast.makeText(MainActivity.this,"This is c2", Toast.LENGTH_SHORT).show();//remove these eventually
 
             }
         });
