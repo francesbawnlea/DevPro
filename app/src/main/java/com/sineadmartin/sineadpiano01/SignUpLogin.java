@@ -5,6 +5,12 @@ import android.os.Bundle;
 
 public class SignUpLogin extends AppCompatActivity {
 
+
+
+   // FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
