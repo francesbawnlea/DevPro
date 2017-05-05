@@ -24,10 +24,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignUpLogin"
+        <activity
+            android:name=".SignUpLogin"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".SignUp"
+        <activity
+            android:name=".SignUp"
             android:screenOrientation="portrait"/>
     </application>
 
