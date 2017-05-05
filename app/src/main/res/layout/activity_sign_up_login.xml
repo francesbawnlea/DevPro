@@ -2,8 +2,78 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="#80ffff"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sineadmartin.sineadpiano01.SignUpLogin">
 
+
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="215dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="39dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.503" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName"
+        tools:text="Email" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail"
+        tools:text="Password" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:background="@android:color/background_dark"
+        android:text="Sign in"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="34dp"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword"
+        android:layout_marginRight="72dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="231dp"
+        android:layout_height="47dp"
+        android:background="@android:color/background_dark"
+        android:text="Create an Account"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="69dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>
