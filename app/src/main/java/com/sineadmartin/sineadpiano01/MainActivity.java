@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         f2 = (Button)findViewById(R.id.f2);
         g2 = (Button)findViewById(R.id.g2);
 
-        bb = (Button)findViewById(R.id.black);
+        bb = (Button)findViewById(R.id.cSharp);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_black1,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_d2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is e2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"This is e2", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is f2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"This is f2", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_g2,1,1,0,0,1);
-                Toast.makeText(MainActivity.this,"This is g2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"This is g2", Toast.LENGTH_SHORT).show();
 
             }
         });
