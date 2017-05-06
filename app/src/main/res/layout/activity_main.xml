@@ -9,7 +9,7 @@
     android:screenOrientation="landscape"
 
 
-    android:background="#80ffff"
+    android:background="#add8e6"
 
     tools:context="com.sineadmartin.sineadpiano01.MainActivity"
     tools:layout_editor_absoluteY="73dp"
