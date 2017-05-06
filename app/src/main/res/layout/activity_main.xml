@@ -21,7 +21,7 @@
             android:layout_width="45dp"
             android:layout_height="180dp"
             android:layout_marginLeft="16dp"
-            android:background="@android:color/white"
+            android:background="@drawable/white_key_rounded_button"
             android:fontFamily="monospace"
             android:text="c"
             android:textAlignment="center"
