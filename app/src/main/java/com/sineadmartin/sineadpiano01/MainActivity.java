@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    static protected StaveCustomView cv;
 
     Button c2, d2, e2, f2, g2, bb;
     private SoundPool soundPool;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cv = (StaveCustomView)findViewById(R.id.stave);
 
         c2 = (Button)findViewById(R.id.c2);
         d2 = (Button)findViewById(R.id.d2);
