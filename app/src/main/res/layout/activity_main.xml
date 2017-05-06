@@ -191,7 +191,7 @@
             android:id="@+id/dSharp"
             android:layout_width="36dp"
             android:layout_height="120dp"
-            android:background="@android:color/background_dark"
+            android:background="@drawable/black_key_rounded_button"
             android:fontFamily="monospace"
             android:text="d#"
             android:textColor="@android:color/background_light"
