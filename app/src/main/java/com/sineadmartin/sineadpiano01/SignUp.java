@@ -1,5 +1,5 @@
 package com.sineadmartin.sineadpiano01;
-
+//Put toast message to alert user that main activity will be landscape, so as not to frighten them lol
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
