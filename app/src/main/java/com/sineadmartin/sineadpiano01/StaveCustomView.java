@@ -57,6 +57,7 @@ public class StaveCustomView extends View {
         //Draw white lines to canvas, 6 in total, for 10km to 60km/h
         for (int i = 0; i < viewSize; i=i+1) {
             canvas.drawLine(0, i * (getHeight() / viewSize), getWidth(), i * (getHeight() / viewSize), linePaint);
+            //canvas.drawArc();
         }
     }
 }
