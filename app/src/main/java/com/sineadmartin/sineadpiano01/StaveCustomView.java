@@ -20,7 +20,7 @@ public class StaveCustomView extends View {
     public static Canvas mCanvas;
     private int mPivotX = 0;
     private int mPivotY = 0;
-    private int radius = 21;
+    private int radius = 20;
 
     private int viewSize = 6;
     private Paint linePaint = new Paint();//To draw the white lines on black canvas
@@ -61,27 +61,6 @@ public class StaveCustomView extends View {
         }
     }
 
-    public void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.BLACK);
-        linePaint.setStrokeWidth(2);
-        linePaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        linePaint.setAntiAlias(true);
-
-        //random circle
-        mPaint.setColor(Color.WHITE);
-        mPaint.setStyle(Paint.Style.STROKE);
-        linePaint.setStrokeWidth(4);
-        mPaint.setAntiAlias(true);
-
-
-        //Draw white lines to canvas, 6 in total, for 10km to 60km/h
-        for (int i = 0; i < viewSize; i=i+1) {
-            canvas.drawLine(0, i * (getHeight() / viewSize), getWidth(), i * (getHeight() / viewSize), linePaint);
-
-        }
-        canvas.drawCircle(mPivotX, mPivotY, radius, mPaint);
-    }
-
     public void drawCircle() {
 
         int minX = radius * 2;
@@ -98,4 +77,27 @@ public class StaveCustomView extends View {
         //important. Refreshes the view by calling onDraw function
         invalidate();
     }
+
+    public void onDraw(Canvas canvas) {
+        canvas.drawColor(Color.BLACK);
+        linePaint.setStrokeWidth(2);
+        linePaint.setStyle(Paint.Style.STROKE);
+        linePaint.setAntiAlias(true);
+
+        //random circle
+        mPaint.setColor(Color.WHITE);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        linePaint.setStrokeWidth(4);
+        mPaint.setAntiAlias(true);
+
+
+        //Draw white lines to canvas, 6 in total, for 10km to 60km/h
+        for (int i = 0; i < viewSize; i=i+1) {
+            canvas.drawLine(0, i * (getHeight() / viewSize), getWidth(), i * (getHeight() / viewSize), linePaint);
+
+        }
+        canvas.drawCircle(mPivotX, mPivotY, radius, mPaint);
+    }
+
+
 }
