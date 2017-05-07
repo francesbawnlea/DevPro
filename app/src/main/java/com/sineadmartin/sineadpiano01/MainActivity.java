@@ -30,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
     private int sound_c2, sound_d2, sound_e2, sound_f2, sound_g2, sound_black1;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         cv = (StaveCustomView)findViewById(R.id.stave);
+        //set up soundpools
 
         c2 = (Button)findViewById(R.id.c2);
         d2 = (Button)findViewById(R.id.d2);
@@ -46,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         bb = (Button)findViewById(R.id.cSharp);
 
         Button btnDraw = (Button) findViewById(R.id.c2);
-        final ImageView imgCircle = (ImageView) findViewById(R.id.cnote);
+        final ImageView imgViewC2 = (ImageView) findViewById(R.id.imgViewC2);
+        final ImageView imgViewCsharp = (ImageView) findViewById(R.id.imgViewCsharp);
+        final ImageView imgViewD2 = (ImageView) findViewById(R.id.imgViewD2);
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -78,23 +84,29 @@ public class MainActivity extends AppCompatActivity {
                 //maybe this?
                 //for (int i = 0; i < viewSize; i=i+1) {
                    // canvas.drawLine(0, i * (getHeight() / viewSize), getWidth(), i * (getHeight() / viewSize), linePaint);
+
+                imgViewCsharp.setImageDrawable(null);
+                imgViewC2.setImageDrawable(null);
+                imgViewD2.setImageDrawable(null);
                 //make circle and place on ImageView cnote
 
+                drawAndPlaceNote(imgViewC2);
+
                 //set paint
-                Paint paint = new Paint();
-                paint.setColor(Color.BLUE);
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setStrokeWidth(4);
+                //Paint paint = new Paint();
+                //paint.setColor(Color.BLUE);
+                //paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                //paint.setStrokeWidth(4);
 
                 //create bitmap
-                Bitmap bmp = Bitmap.createBitmap(50,50,Bitmap.Config.ARGB_8888);//this config is best quality for the graphics
+               // Bitmap bmp = Bitmap.createBitmap(50,50,Bitmap.Config.ARGB_8888);//this config is best quality for the graphics
 
                 //create canvas obj, this draws onto the butmap
-                Canvas canvas = new Canvas(bmp);//canvas objcontains built in method that creates a circle
-                canvas.drawCircle(bmp.getWidth()/2, bmp.getHeight()/2, 10,paint);//x coord, y coord, radius, color
+                //Canvas canvas = new Canvas(bmp);//canvas objcontains built in method that creates a circle
+                //canvas.drawCircle(bmp.getWidth()/2, bmp.getHeight()/2, 10,paint);//x coord, y coord, radius, color
 
                 //output circle, by calling img view
-                imgCircle.setImageBitmap(bmp);
+                //imgCircle.setImageBitmap(bmp);
 
 
             }
@@ -105,8 +117,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_black1,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
+                imgViewCsharp.setImageDrawable(null);
+                imgViewC2.setImageDrawable(null);
+                imgViewD2.setImageDrawable(null);
+                //now create a method somewhere in here to destroy all imageviews yippee!!!!!
+                drawAndPlaceNote(imgViewCsharp);
+
 
             }
+
         });
 
         d2.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +133,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_d2,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
+                imgViewCsharp.setImageDrawable(null);
+                imgViewC2.setImageDrawable(null);
+                imgViewD2.setImageDrawable(null);
+                drawAndPlaceNote(imgViewC2);
 
             }
         });
@@ -144,12 +167,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Method to destroy all ImageViews, this method will delete them before next note event occurs
+
+
+
     }
 
 
 
     //Method to create a circle
-    public void drawCircle(){
+    public void drawAndPlaceNote(ImageView imgView){
+
+        //set paint
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStrokeWidth(4);
+
+        //create bitmap
+        Bitmap bmp = Bitmap.createBitmap(50,50,Bitmap.Config.ARGB_8888);//this config is best quality for the graphics
+
+        //create canvas obj, this draws onto the butmap
+        Canvas canvas = new Canvas(bmp);//canvas objcontains built in method that creates a circle
+        canvas.drawCircle(bmp.getWidth()/2, bmp.getHeight()/2, 10,paint);//x coord, y coord, radius, color
+
+        //Can I destroy all images here first before creation? try it!
+        //imgView.setImageDrawable(null); Doesn't work
+        //Must find a wat to create a method to destroy all images before another created
+        //instead of individually doing it in each button onclick event
+
+        //output circle, by calling img view
+        imgView.setImageBitmap(bmp);
+
 
     }
+
+
+
+
+
+
 }
