@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         bb = (Button)findViewById(R.id.cSharp);
 
-        Button btnDraw = (Button) findViewById(R.id.c2);
-        final ImageView imgViewC2 = (ImageView) findViewById(R.id.imgViewC2);
-        final ImageView imgViewCsharp = (ImageView) findViewById(R.id.imgViewCsharp);
-        final ImageView imgViewD2 = (ImageView) findViewById(R.id.imgViewD2);
+        //Button btnDraw = (Button) findViewById(R.id.c2);
+        //final ImageView imgViewC2 = (ImageView) findViewById(R.id.imgViewC2);
+        //final ImageView imgViewCsharp = (ImageView) findViewById(R.id.imgViewCsharp);
+        //final ImageView imgViewD2 = (ImageView) findViewById(R.id.imgViewD2);
 
 
 
@@ -79,18 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
                 soundPool.play(sound_c2,1,1,0,0,1);
                 Toast.makeText(MainActivity.this,"This is the c2", Toast.LENGTH_SHORT).show();//remove these eventually
+                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
                 //Here we Place a note on appropriate xy pos on StaveCustomView
                 //How da fk?
                 //maybe this?
                 //for (int i = 0; i < viewSize; i=i+1) {
                    // canvas.drawLine(0, i * (getHeight() / viewSize), getWidth(), i * (getHeight() / viewSize), linePaint);
 
-                imgViewCsharp.setImageDrawable(null);
-                imgViewC2.setImageDrawable(null);
-                imgViewD2.setImageDrawable(null);
+
+                //imgViewD2.setImageDrawable(null);
                 //make circle and place on ImageView cnote
 
-                drawAndPlaceNote(imgViewC2);
+                //drawAndPlaceNote(imgViewC2);
 
                 //set paint
                 //Paint paint = new Paint();
@@ -117,11 +117,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_black1,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
-                imgViewCsharp.setImageDrawable(null);
-                imgViewC2.setImageDrawable(null);
-                imgViewD2.setImageDrawable(null);
+
                 //now create a method somewhere in here to destroy all imageviews yippee!!!!!
-                drawAndPlaceNote(imgViewCsharp);
+                //drawAndPlaceNote(imgViewCsharp);
 
 
             }
@@ -133,10 +131,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_d2,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
-                imgViewCsharp.setImageDrawable(null);
-                imgViewC2.setImageDrawable(null);
-                imgViewD2.setImageDrawable(null);
-                drawAndPlaceNote(imgViewC2);
+
+                //drawAndPlaceNote(imgViewC2);
 
             }
         });
@@ -175,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //Method to create a circle
+    //Method to create a circle, i WONT USE THIS
     public void drawAndPlaceNote(ImageView imgView){
 
         //set paint
