@@ -22,8 +22,8 @@ public class StaveCustomView extends View {
     //the random circle
     public Paint mPaint;
     public static Canvas mCanvas;
-    private int mPivotX = 0;
-    private int mPivotY = 0;
+    private int mPivotX;
+    private int mPivotY;
     private int radius = 20;
 
 

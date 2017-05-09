@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_black1,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
+                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
 
                 //now create a method somewhere in here to destroy all imageviews yippee!!!!!
                 //drawAndPlaceNote(imgViewCsharp);
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_d2,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
+                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
 
                 //drawAndPlaceNote(imgViewC2);
 
