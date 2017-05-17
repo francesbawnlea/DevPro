@@ -22,13 +22,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     static protected StaveCustomView cv;
 
-    Button c2, d2, e2, f2, g2, bb;
+    Button c, cSharp, d, dSharp, e, f, g;
 
 
 
     private SoundPool soundPool;
 
-    private int sound_c2, sound_d2, sound_e2, sound_f2, sound_g2, sound_black1;
+    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e2, sound_f2, sound_g2 ;
 
 
 
@@ -40,13 +40,15 @@ public class MainActivity extends AppCompatActivity {
         cv = (StaveCustomView)findViewById(R.id.stave);
         //set up soundpools
 
-        c2 = (Button)findViewById(R.id.c2);
-        d2 = (Button)findViewById(R.id.d2);
-        e2 = (Button)findViewById(R.id.e2);
-        f2 = (Button)findViewById(R.id.f2);
-        g2 = (Button)findViewById(R.id.g2);
+        c = (Button)findViewById(R.id.c);
+        cSharp = (Button)findViewById(R.id.cSharp);
+        d = (Button)findViewById(R.id.d);
+        dSharp = (Button)findViewById(R.id.dSharp);
+        e = (Button)findViewById(R.id.e);
+        f = (Button)findViewById(R.id.f);
+        g = (Button)findViewById(R.id.g);
 
-        bb = (Button)findViewById(R.id.cSharp);
+
 
         //Button btnDraw = (Button) findViewById(R.id.c2);
         //final ImageView imgViewC2 = (ImageView) findViewById(R.id.imgViewC2);
@@ -62,22 +64,23 @@ public class MainActivity extends AppCompatActivity {
             soundPool=new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         }
 
-        sound_c2  = soundPool.load(this, R.raw.shortdryhighnote, 1);
-        sound_d2  = soundPool.load(this, R.raw.shortdry, 1);
+        sound_c  = soundPool.load(this, R.raw.c, 1);
+        sound_d  = soundPool.load(this, R.raw.d, 1);
+        sound_dSharp  = soundPool.load(this, R.raw.d_sharp, 1);
         sound_e2  = soundPool.load(this, R.raw.e2, 1);
         sound_f2  = soundPool.load(this, R.raw.f2, 1);
         sound_g2  = soundPool.load(this, R.raw.g2, 1);
 
 
-        sound_black1 = soundPool.load(this, R.raw.longdryc1, 1);//for testing
+        sound_cSharp = soundPool.load(this, R.raw.c_sharp, 1);//for testing
 
 
 
-        c2.setOnClickListener(new View.OnClickListener() {
+        c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                soundPool.play(sound_c2,1,1,0,0,1);
+                soundPool.play(sound_c,1,1,0,0,1);
                 Toast.makeText(MainActivity.this,"This is the c2", Toast.LENGTH_SHORT).show();//remove these eventually
                 cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
                 //Here we Place a note on appropriate xy pos on StaveCustomView
@@ -112,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bb.setOnClickListener(new View.OnClickListener() {
+        cSharp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(sound_black1,1,1,0,0,1);
+                soundPool.play(sound_cSharp,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
                 cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
 
@@ -127,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        d2.setOnClickListener(new View.OnClickListener() {
+        d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(sound_d2,1,1,0,0,1);
+                soundPool.play(sound_d,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
                 cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
 
@@ -139,7 +142,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        e2.setOnClickListener(new View.OnClickListener() {
+        dSharp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_dSharp,1,1,0,0,1);
+                //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
+                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+
+                //drawAndPlaceNote(imgViewC2);
+
+            }
+        });
+
+        e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e2,1,1,0,0,1);
@@ -148,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        f2.setOnClickListener(new View.OnClickListener() {
+        f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f2,1,1,0,0,1);
@@ -156,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        g2.setOnClickListener(new View.OnClickListener() {
+        g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_g2,1,1,0,0,1);
