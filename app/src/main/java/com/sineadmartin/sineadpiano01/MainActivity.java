@@ -22,13 +22,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     static protected StaveCustomView cv;
 
-    Button c, cSharp, d, dSharp, e, f, g;
+    Button c, cSharp, d, dSharp, e, f, fSharp, g, gSharp, a, aSharp, b, c1, cSharp1, d1, dSharp1, e1, f1;
 
 
 
     private SoundPool soundPool;
 
-    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e2, sound_f2, sound_g2 ;
+    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e, sound_f, sound_fSharp, sound_g, sound_gSharp, sound_a, sound_aSharp ;
 
 
 
@@ -46,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         dSharp = (Button)findViewById(R.id.dSharp);
         e = (Button)findViewById(R.id.e);
         f = (Button)findViewById(R.id.f);
+        fSharp = (Button)findViewById(R.id.fSharp);
         g = (Button)findViewById(R.id.g);
+        gSharp = (Button)findViewById(R.id.gSharp);
+        a = (Button)findViewById(R.id.a);
+        aSharp = (Button)findViewById(R.id.aSharp);
 
 
 
@@ -65,14 +69,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         sound_c  = soundPool.load(this, R.raw.c, 1);
+        sound_cSharp = soundPool.load(this, R.raw.c_sharp, 1);//for testing
         sound_d  = soundPool.load(this, R.raw.d, 1);
         sound_dSharp  = soundPool.load(this, R.raw.d_sharp, 1);
-        sound_e2  = soundPool.load(this, R.raw.e2, 1);
-        sound_f2  = soundPool.load(this, R.raw.f2, 1);
-        sound_g2  = soundPool.load(this, R.raw.g2, 1);
+        sound_e  = soundPool.load(this, R.raw.e, 1);
+        sound_f  = soundPool.load(this, R.raw.f, 1);
+        sound_fSharp  = soundPool.load(this, R.raw.f_sharp, 1);
+        sound_g  = soundPool.load(this, R.raw.g, 1);
+        sound_gSharp  = soundPool.load(this, R.raw.g_sharp, 1);
+        sound_a  = soundPool.load(this, R.raw.a, 1);
+        sound_aSharp  = soundPool.load(this, R.raw.a_sharp, 1);
 
 
-        sound_cSharp = soundPool.load(this, R.raw.c_sharp, 1);//for testing
+
 
 
 
@@ -157,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
         e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(sound_e2,1,1,0,0,1);
-                //Toast.makeText(MainActivity.this,"This is e2", Toast.LENGTH_SHORT).show();
+                soundPool.play(sound_e,1,1,0,0,1);
+                cv.drawCircle();
 
             }
         });
@@ -166,16 +175,49 @@ public class MainActivity extends AppCompatActivity {
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(sound_f2,1,1,0,0,1);
-                //Toast.makeText(MainActivity.this,"This is f2", Toast.LENGTH_SHORT).show();
+                soundPool.play(sound_f,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+
+        fSharp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_fSharp,1,1,0,0,1);
+                cv.drawCircle();
 
             }
         });
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(sound_g2,1,1,0,0,1);
-                //Toast.makeText(MainActivity.this,"This is g2", Toast.LENGTH_SHORT).show();
+                soundPool.play(sound_g,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        gSharp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_gSharp,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_a,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        aSharp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_aSharp,1,1,0,0,1);
+                cv.drawCircle();
 
             }
         });
