@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SoundPool soundPool;
 
-    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e, sound_f, sound_fSharp, sound_g, sound_gSharp, sound_a, sound_aSharp, sound_b, sound_c1,sound_cSharp1  ;
+    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e, sound_f, sound_fSharp, sound_g, sound_gSharp, sound_a, sound_aSharp, sound_b, sound_c1,sound_cSharp1, sound_d1, sound_dSharp1,sound_e1, sound_f1   ;
 
 
 
@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         b = (Button)findViewById(R.id.b);
         c1 = (Button)findViewById(R.id.c1);
         cSharp1 = (Button)findViewById(R.id.c1Sharp);
+        d1 = (Button)findViewById(R.id.d1);
+        dSharp1 = (Button)findViewById(R.id.d1Sharp);
+        e1 = (Button)findViewById(R.id.e1);
+        f1 = (Button)findViewById(R.id.f1);
 
 
 
@@ -85,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
         sound_b  = soundPool.load(this, R.raw.b, 1);
         sound_c1  = soundPool.load(this, R.raw.c1, 1);
         sound_cSharp1  = soundPool.load(this, R.raw.c_sharp1, 1);
+        sound_d1  = soundPool.load(this, R.raw.d1, 1);
+        sound_dSharp1  = soundPool.load(this, R.raw.d_sharp1, 1);
+        sound_e1  = soundPool.load(this, R.raw.e1, 1);
+        sound_f1  = soundPool.load(this, R.raw.f1, 1);
 
 
 
@@ -249,6 +257,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_cSharp1,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        d1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_d1,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        dSharp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_dSharp1,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        e1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_e1,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        f1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_f1,1,1,0,0,1);
                 cv.drawCircle();
 
             }
