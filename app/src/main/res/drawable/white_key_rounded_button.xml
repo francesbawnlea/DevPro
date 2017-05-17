@@ -2,21 +2,21 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
-            <corners android:radius="3dip" />
+            <corners android:radius="8dip" />
             <stroke android:width="1dip" android:color="#eeccff" /><!--stroke is the outline-->
             <gradient android:angle="-90" android:startColor="#000066" android:endColor="#000066"  /><!--start and end color is the fade from top to bottom-->
         </shape>
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle"  >
-            <corners android:radius="3dip" />
+            <corners android:radius="8dip" />
             <stroke android:width="1dip" android:color="#e6e6ff" /><!--color when pressed and held?-->
             <solid android:color="#58857e"/>
         </shape>
     </item>
     <item >
         <shape android:shape="rectangle"  >
-            <corners android:radius="3dip" />
+            <corners android:radius="8dip" />
             <stroke android:width="1dip" android:color="#0000cc" /> <!--tis is the outline of the button-->
             <gradient android:angle="-90" android:startColor="#666699" android:endColor="#d1d1e0" /><!--actual color of buttons top to bottom fade-->
         </shape>
