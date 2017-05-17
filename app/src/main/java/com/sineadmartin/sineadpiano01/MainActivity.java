@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SoundPool soundPool;
 
-    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e, sound_f, sound_fSharp, sound_g, sound_gSharp, sound_a, sound_aSharp ;
+    private int sound_c, sound_cSharp, sound_d, sound_dSharp, sound_e, sound_f, sound_fSharp, sound_g, sound_gSharp, sound_a, sound_aSharp, sound_b, sound_c1,sound_cSharp1  ;
 
 
 
@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         gSharp = (Button)findViewById(R.id.gSharp);
         a = (Button)findViewById(R.id.a);
         aSharp = (Button)findViewById(R.id.aSharp);
+        b = (Button)findViewById(R.id.b);
+        c1 = (Button)findViewById(R.id.c1);
+        cSharp1 = (Button)findViewById(R.id.c1Sharp);
 
 
 
@@ -79,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         sound_gSharp  = soundPool.load(this, R.raw.g_sharp, 1);
         sound_a  = soundPool.load(this, R.raw.a, 1);
         sound_aSharp  = soundPool.load(this, R.raw.a_sharp, 1);
+        sound_b  = soundPool.load(this, R.raw.b, 1);
+        sound_c1  = soundPool.load(this, R.raw.c1, 1);
+        sound_cSharp1  = soundPool.load(this, R.raw.c_sharp1, 1);
 
 
 
@@ -217,6 +223,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_aSharp,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_b,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+        c1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_c1,1,1,0,0,1);
+                cv.drawCircle();
+
+            }
+        });
+
+        cSharp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(sound_cSharp1,1,1,0,0,1);
                 cv.drawCircle();
 
             }
