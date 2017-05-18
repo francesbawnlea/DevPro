@@ -303,6 +303,18 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="48dp" />
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="35dp"
+            android:layout_height="89dp"
+            app:srcCompat="@drawable/trebleclef3"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="7dp"/>
+
 
 </android.support.constraint.ConstraintLayout>
 
