@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         sound_e1  = soundPool.load(this, R.raw.e1, 1);
         sound_f1  = soundPool.load(this, R.raw.f1, 1);
 
+        //cv.setYcoord();//set the array full of y positions
+
 
 
 
@@ -105,7 +107,10 @@ public class MainActivity extends AppCompatActivity {
 
                 soundPool.play(sound_c,1,1,0,0,1);
                 Toast.makeText(MainActivity.this,"This is the c2", Toast.LENGTH_SHORT).show();//remove these eventually
-                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+                //cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+
+                cv.setYcoord();//NEED THIS: 13/05/17, Calling this method here fills the array with note positions
+                cv.drawCircleXY(12);
                 //Here we Place a note on appropriate xy pos on StaveCustomView
                 //How da fk?
                 //maybe this?
@@ -143,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_cSharp,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is theee black", Toast.LENGTH_SHORT).show();
-                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+                cv.setYcoord();
+                cv.drawCircleXY(12);//call the method in customview class to create circle and place randomly on customview
 
                 //now create a method somewhere in here to destroy all imageviews yippee!!!!!
                 //drawAndPlaceNote(imgViewCsharp);
@@ -158,7 +164,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_d,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
-                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+                cv.setYcoord();
+                cv.drawCircleXY(11);//call the method in customview class to create circle and place randomly on customview
 
                 //drawAndPlaceNote(imgViewC2);
 
@@ -170,7 +177,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(sound_dSharp,1,1,0,0,1);
                 //Toast.makeText(MainActivity.this,"This is d2", Toast.LENGTH_SHORT).show();
-                cv.drawCircle();//call the method in customview class to create circle and place randomly on customview
+                cv.setYcoord();
+                cv.drawCircleXY(11);//call the method in customview class to create circle and place randomly on customview
 
                 //drawAndPlaceNote(imgViewC2);
 
@@ -181,7 +189,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e,1,1,0,0,1);
-                cv.drawCircle();
+
+                cv.setYcoord();
+                cv.drawCircleXY(10);
 
             }
         });
@@ -190,7 +200,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(9);
 
             }
         });
@@ -199,7 +210,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_fSharp,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(9);
 
             }
         });
@@ -207,7 +219,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_g,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(8);
 
             }
         });
@@ -215,7 +228,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_gSharp,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(8);
 
             }
         });
@@ -223,7 +237,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_a,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(7);
 
             }
         });
@@ -231,7 +246,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_aSharp,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(7);
 
             }
         });
@@ -240,7 +256,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_b,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(6);
 
             }
         });
@@ -248,7 +265,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(5);
 
             }
         });
@@ -257,7 +275,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_cSharp1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(5);
 
             }
         });
@@ -265,7 +284,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_d1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(4);
 
             }
         });
@@ -273,7 +293,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_dSharp1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(4);
 
             }
         });
@@ -281,7 +302,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(3);
 
             }
         });
@@ -289,7 +311,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f1,1,1,0,0,1);
-                cv.drawCircle();
+                cv.setYcoord();
+                cv.drawCircleXY(2);
 
             }
         });
