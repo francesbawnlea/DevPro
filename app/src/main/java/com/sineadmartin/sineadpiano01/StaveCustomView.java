@@ -54,8 +54,8 @@ public class StaveCustomView extends View {
 // constructors
     protected void init() {
 
-        linePaint.setColor(Color.WHITE);//sets the colour for drawing the lines on the stave
-        circlePaint.setColor(Color.WHITE);
+        linePaint.setColor(Color.BLACK);//sets the colour for drawing the lines on the stave
+        circlePaint.setColor(Color.BLACK);
 
         //mPivotX=getWidth()/2; mPivotY=getHeight()/2; doesnt work here iether
 
@@ -73,13 +73,13 @@ public class StaveCustomView extends View {
 
 
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.BLACK);
+        canvas.drawColor(Color.WHITE);
         linePaint.setStrokeWidth(2);
         linePaint.setStyle(Paint.Style.STROKE);
         linePaint.setAntiAlias(true);
 
         //random circle
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         linePaint.setStrokeWidth(4);
         mPaint.setAntiAlias(true);
