@@ -297,6 +297,9 @@
             android:text="ToggleButton"
             android:textOff="@string/rec_button"
             android:textOn="Stop"
+
+            android:onClick="recordAudio"
+
             android:background="@drawable/record_button_style"
             app:layout_constraintLeft_toRightOf="@+id/stave"
             android:layout_marginLeft="295dp"

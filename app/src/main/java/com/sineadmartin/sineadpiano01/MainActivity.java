@@ -10,16 +10,30 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.AudioManager;
+import android.media.MediaRecorder;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    //private Button mRecordButton;
+    //private TextView mRecordLabel;
+    private MediaRecorder mRecorder;
+    private String mFileName = null;
+    private static  final String LOG_TAG = "Record_log";
+
     static protected StaveCustomView cv;
 
     Button c, cSharp, d, dSharp, e, f, fSharp, g, gSharp, a, aSharp, b, c1, cSharp1, d1, dSharp1, e1, f1;
@@ -36,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/recorded_audio.mp3";
+
+
+
+
 
         cv = (StaveCustomView)findViewById(R.id.stave);
         //set up soundpools
@@ -322,6 +343,47 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //METHOD TO START TOGGLE RECORD FUNCTION
+    public void recordAudio(View view){//TOGGLE BUTTON METHOD
+        boolean checked = ((ToggleButton)view).isChecked();
+
+        if(checked){
+            startRecording();
+            //mRecordLabel.setText("Recording started!");
+
+        }
+        else{
+            stopRecording();
+            //mRecordLabel.setText("Recording stopped!");
+        }
+    }
+
+    private void startRecording() {
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);//was origionally
+        mRecorder.setOutputFile(mFileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+        try {
+            mRecorder.prepare();
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "prepare() failed");
+        }
+
+        mRecorder.start();
+    }
+
+    private void stopRecording() {
+        mRecorder.stop();
+        mRecorder.release();
+        mRecorder = null;
+
+        //Upload the file to firebase here
+        //uploadAudio();
+
+    }
+
 
 
 
@@ -351,6 +413,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 
