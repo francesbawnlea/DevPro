@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Method to destroy all ImageViews, this method will delete them before next note event occurs
+        //Method to Destroy all ImageViews, this method will delete them before next note event occurs
 
 
 
