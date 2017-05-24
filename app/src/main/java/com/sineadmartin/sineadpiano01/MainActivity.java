@@ -6,25 +6,31 @@ package com.sineadmartin.sineadpiano01;
 //WHEN I CLICK C2 AND G2 AT SAME TIME WE HAVE A CHORD
 //OTHERS NOT WORKING THE SAME, DUE TO HOW THEY WERE RECORDED
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
+import android.app.ProgressDialog;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private MediaRecorder mRecorder;
     private String mFileName = null;
     private static  final String LOG_TAG = "Record_log";
+
+    int counter = 0000;//for incrementing the number on the uploaded file each time so it womnt overwrite pevious
+    private StorageReference mStorage;//FIREBASE
+    private ProgressDialog mProgress;
 
     static protected StaveCustomView cv;
 
@@ -54,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/recorded_audio.mp3";
+
+        mStorage = FirebaseStorage.getInstance().getReference();//to our root directory of our storage
+        mProgress = new ProgressDialog(this);
 
 
 
@@ -343,6 +356,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
     //METHOD TO START TOGGLE RECORD FUNCTION
     public void recordAudio(View view){//TOGGLE BUTTON METHOD
@@ -351,6 +366,7 @@ public class MainActivity extends AppCompatActivity {
         if(checked){
             startRecording();
             //mRecordLabel.setText("Recording started!");
+            Toast.makeText(getApplicationContext(), "recording in process... ", Toast.LENGTH_LONG).show();
 
         }
         else{
@@ -381,39 +397,89 @@ public class MainActivity extends AppCompatActivity {
         mRecorder = null;
 
         //Upload the file to firebase here
-        //uploadAudio();
+        uploadAudio();
 
     }
+
+    private void uploadAudio() {
+
+        mProgress.setMessage("Uploading audio...");
+        mProgress.show();
+        //Randomise 9 digits here for file naming
+        //create var to store random number
+        Random rand = new Random();
+        int value = rand.nextInt(50);
+        //try with counter
+        //int counter = 0000;
+
+        StorageReference filepath = mStorage.child("Audio").child(counter+"_new_audio_Wow.3gp");//USING .PUSH CREATES A KEY, HOW TO DO THIS FOR EACH AUDIO UPLOADED?LECTTENOFYOUTUBECOURSE
+        counter++;
+        Uri uri = Uri.fromFile(new File(mFileName));
+        filepath.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                        mProgress.dismiss();
+                        Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
+                        //mRecordLabel.setText("Uploading finished");
+
+                    }
+
+
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        //if the upload is not successfull
+                        //hiding the progress dialog
+                        mProgress.dismiss();
+
+                        //and displaying error message
+                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                })
+
+
+
+
+        ;
+
+
+    }
+
 
 
 
 
     //Method to create a circle, i WONT USE THIS
-    public void drawAndPlaceNote(ImageView imgView){
-
-        //set paint
-        Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setStrokeWidth(4);
-
-        //create bitmap
-        Bitmap bmp = Bitmap.createBitmap(50,50,Bitmap.Config.ARGB_8888);//this config is best quality for the graphics
-
-        //create canvas obj, this draws onto the butmap
-        Canvas canvas = new Canvas(bmp);//canvas objcontains built in method that creates a circle
-        canvas.drawCircle(bmp.getWidth()/2, bmp.getHeight()/2, 10,paint);//x coord, y coord, radius, color
-
-        //Can I destroy all images here first before creation? try it!
-        //imgView.setImageDrawable(null); Doesn't work
-        //Must find a wat to create a method to destroy all images before another created
-        //instead of individually doing it in each button onclick event
-
-        //output circle, by calling img view
-        imgView.setImageBitmap(bmp);
-
-
-    }
+//    public void drawAndPlaceNote(ImageView imgView){
+//
+//        //set paint
+//        Paint paint = new Paint();
+//        paint.setColor(Color.WHITE);
+//        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+//        paint.setStrokeWidth(4);
+//
+//        //create bitmap
+//        Bitmap bmp = Bitmap.createBitmap(50,50,Bitmap.Config.ARGB_8888);//this config is best quality for the graphics
+//
+//        //create canvas obj, this draws onto the butmap
+//        Canvas canvas = new Canvas(bmp);//canvas objcontains built in method that creates a circle
+//        canvas.drawCircle(bmp.getWidth()/2, bmp.getHeight()/2, 10,paint);//x coord, y coord, radius, color
+//
+//        //Can I destroy all images here first before creation? try it!
+//        //imgView.setImageDrawable(null); Doesn't work
+//        //Must find a wat to create a method to destroy all images before another created
+//        //instead of individually doing it in each button onclick event
+//
+//        //output circle, by calling img view
+//        imgView.setImageBitmap(bmp);
+//
+//
+//    }
 
 
 
