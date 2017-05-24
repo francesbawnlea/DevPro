@@ -414,7 +414,10 @@ public class MainActivity extends AppCompatActivity {
         //try with counter
         //int counter = 0000;
 
-        StorageReference filepath = mStorage.child("Audio").child(counter+"_new_audio_Wow.3gp");//USING .PUSH CREATES A KEY, HOW TO DO THIS FOR EACH AUDIO UPLOADED?LECTTENOFYOUTUBECOURSE
+        Random rn = new Random();
+        int answer = rn.nextInt(999999)+100000;//RANDOMISE A 6 DIGIT NUMBER TO NOT OVER WRITE FILES ULOADED
+
+        StorageReference filepath = mStorage.child("Audio").child(answer+"_new_audio_Wow.3gp");//USING .PUSH CREATES A KEY, HOW TO DO THIS FOR EACH AUDIO UPLOADED?LECTTENOFYOUTUBECOURSE
         counter++;
         Uri uri = Uri.fromFile(new File(mFileName));
         filepath.putFile(uri)
