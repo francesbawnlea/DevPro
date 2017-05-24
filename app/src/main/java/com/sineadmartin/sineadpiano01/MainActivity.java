@@ -1,4 +1,5 @@
 package com.sineadmartin.sineadpiano01;
+//use tut 11 for start of signup login firebase stuff
 
 //READ NEW BOOK sineadmartinx@yahoo.com FOR HELP WITH CONSTRAINTS
 //SOUNDS MUST START AT SAME TIME
