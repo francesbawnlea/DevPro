@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     private static  final String LOG_TAG = "Record_log";
 
     int counter = 0000;//for incrementing the number on the uploaded file each time so it womnt overwrite pevious
+    //Should this counter somehow be stored in shared prefs folder, so it is on phone and always incs correctly,
+    //even when app shut down?
     private StorageReference mStorage;//FIREBASE
     private ProgressDialog mProgress;
 
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/recorded_audio.mp3";
+        mFileName += "/recorded_audio.3gp";
 
         mStorage = FirebaseStorage.getInstance().getReference();//to our root directory of our storage
         mProgress = new ProgressDialog(this);
@@ -378,7 +380,7 @@ public class MainActivity extends AppCompatActivity {
     private void startRecording() {
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);//was origionally
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);//was origionally DEFAULT and mp3 above line 68, shouldnt use mp3? why?
         mRecorder.setOutputFile(mFileName);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
