@@ -1,10 +1,18 @@
 package com.sineadmartin.sineadpiano01;
 //use tut 11 for start of signup login firebase stuff
 
-//READ NEW BOOK sineadmartinx@yahoo.com FOR HELP WITH CONSTRAINTS
-//SOUNDS MUST START AT SAME TIME
-//WHEN I CLICK C2 AND G2 AT SAME TIME WE HAVE A CHORD
-//OTHERS NOT WORKING THE SAME, DUE TO HOW THEY WERE RECORDED
+//28/05/17
+//aDDITIONS TO ALLOW UPLOAD AND DOWNLOAD OF PARTICULAR FILE BY USER
+//ADD BUTTON, 2 POP UPS, DOWNLOAD METHOD
+//ADD POP UP BEFORE UPLOAD METHOD CALLED IN STOP METHOD
+//THIS WILL ALLOW USER TO NAME THEIR FILE
+//SAVE TO SHARED PREFERENCES
+//aDD DOWNLOAD METHOD
+//ADD BUTTON FOR PLAYBACK
+//BUTTON LISTENER WILL CALL DOWNLOAD METHOD
+//DOWNLOAD METHOD WILL DISPLAY POP UP
+//POP UP WILL TAKE IN FILENAME CREATED BY USER
+//METHOD WILL CALL THIS FILE FROM DB
 
 import android.app.ProgressDialog;
 import android.media.AudioManager;
@@ -37,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     //private Button mRecordButton;
     //private TextView mRecordLabel;
+
+    private String userFileName;//The user will enter this to name the recorded file before upload
+
     private MediaRecorder mRecorder;
     private String mFileName = null;
     private static  final String LOG_TAG = "Record_log";
@@ -65,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/recorded_audio.3gp";
+        mFileName += "/recorded_audio.mp3";
 
         mStorage = FirebaseStorage.getInstance().getReference();//to our root directory of our storage
         mProgress = new ProgressDialog(this);
@@ -380,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
     private void startRecording() {
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);//was origionally DEFAULT and mp3 above line 68, shouldnt use mp3? why?
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);//THREE_GPP was origionally DEFAULT and mp3 above line 68, shouldnt use mp3? why?
         mRecorder.setOutputFile(mFileName);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
@@ -398,16 +409,20 @@ public class MainActivity extends AppCompatActivity {
         mRecorder.release();
         mRecorder = null;
 
+        //put dialogue box here, stops activity till click ok
+        //get the varaible
+        //put instead of random gen for audio file mnsme
+
         //Upload the file to firebase here
         uploadAudio();
 
     }
 
-    private void uploadAudio() {
+    private void uploadAudio() {//LOSE RANDOM GEN HERE AND LET USER NAME OWN FILE THROUGH POP UP DIALOG
 
         mProgress.setMessage("Uploading audio...");
         mProgress.show();
-        //Randomise 9 digits here for file naming
+        //Randomise 9 digits here for file naming, this is temp fix til user can name file on record stop
         //create var to store random number
         Random rand = new Random();
         int value = rand.nextInt(50);
@@ -417,8 +432,8 @@ public class MainActivity extends AppCompatActivity {
         Random rn = new Random();
         int answer = rn.nextInt(999999)+100000;//RANDOMISE A 6 DIGIT NUMBER TO NOT OVER WRITE FILES ULOADED
 
-        StorageReference filepath = mStorage.child("Audio").child(answer+"_new_audio_Wow.3gp");//USING .PUSH CREATES A KEY, HOW TO DO THIS FOR EACH AUDIO UPLOADED?LECTTENOFYOUTUBECOURSE
-        counter++;
+        StorageReference filepath = mStorage.child("Audio").child(answer+"_new_audio_Wow.mp3");//USING .PUSH CREATES A KEY, HOW TO DO THIS FOR EACH AUDIO UPLOADED?LECTTENOFYOUTUBECOURSE
+        //counter++;
         Uri uri = Uri.fromFile(new File(mFileName));
         filepath.putFile(uri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -453,6 +468,12 @@ public class MainActivity extends AppCompatActivity {
         ;
 
 
+    }
+    private void download(String fileName){
+        //this method called when user hits playback button
+        //pop  up will take in file name
+        //sends filename in a var from the popup dialog to be called
+        //saved in shared prefs
     }
 
 
